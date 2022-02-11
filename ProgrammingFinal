@@ -1,0 +1,85 @@
+public class Musician {
+  
+   private String name;
+   private String[] instrumentArray;
+   private int numberOfInstruments;
+  
+  
+   public Musician()
+   {
+       name = "";
+       numberOfInstruments = 0;
+       instrumentArray = new String[10];
+   }
+  
+   
+   public void setName(String name)
+   {
+       this.name = name;
+   	}
+  
+  
+   public String getName()
+   {
+       return name;
+   		}
+  
+   
+   public void addInstrument(String newInstrument)
+   {
+       
+       if(numberOfInstruments < instrumentArray.length)
+       {
+          
+           instrumentArray[numberOfInstruments] = newInstrument;
+           numberOfInstruments++; 
+       }
+      
+   }
+
+  
+   public String getInstruments()
+   {
+       if(numberOfInstruments == 0) 
+           return "";
+       else
+       {
+           String instruments = "";
+           
+           for(int i=0;i<numberOfInstruments;i++)
+           {
+               instruments += instrumentArray[i]; 
+               if(i < numberOfInstruments-1)
+                   instruments += " ";
+           }
+          
+           return instruments;
+       }
+   }
+  
+   
+   public int getNumberOfInstruments()
+   {
+       return numberOfInstruments;
+   }
+  
+  
+   public String toString()
+   {
+       return "Name: "+name+" plays "+numberOfInstruments+" instruments which are "+getInstruments();
+   }
+  
+ 
+   public boolean equals(Object otherObject)
+   {
+       
+       if(otherObject instanceof Musician)
+       {
+           Musician m = (Musician)otherObject; 
+       
+           return(name.equals(m.getName()) && getInstruments().equals(m.getInstruments()) && numberOfInstruments == m.getNumberOfInstruments());
+       }
+      
+       return false;
+   }
+}
