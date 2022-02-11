@@ -1,0 +1,12 @@
+public interface SetInterface<T> {
+ 
+	public int size();
+  
+	public boolean memberOf(T data);
+
+	public void add(T data) throws DuplicateFoundException;
+  
+	public void delete(T data);
+  
+	public String toString();
+}
